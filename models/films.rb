@@ -24,5 +24,36 @@ class Films
     @id = results[0]['id'].to_i
   end
 
+  def self.delete_all()
+    sql = "DELETE FROM films"
+    values = []
+    SqlRunner.run(sql, values)
+  end
+
+  def delete()
+    sql = "DELETE FROM films
+           WHERE id = $1"
+    values = [@id]
+    SqlRunner.run(sql, values)
+  end
+
+  def self.all()
+    sql = "SELECT * FROM films"
+    values = []
+    show_list = SqlRunner.run(sql, values)
+    films_as_objects = show_list.map{|list| Films.new(list)}
+    return films_as_objects
+  end
+
+  def Films.find(film_id)
+    sql = "SELECT * FROM films
+           WHERE id = $1 "
+    values = [film_id]
+    result = SqlRunner.run(sql, values)
+    film_details = result[0]
+    film_info = Films.new(film_details)
+    return film_info
+  end
+
 
 end
