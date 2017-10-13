@@ -71,6 +71,11 @@ class Customer
     return films_seen
   end
 
+  def film_count
+    result = find_films
+    return result.count
+  end
+
   # def ticket_cost()
 
 
