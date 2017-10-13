@@ -6,13 +6,14 @@ CREATE TABLE customers
 (
   id SERIAL8 PRIMARY KEY,
   name VARCHAR(255),
-  cash INT4
+  funds INT4
 );
 
 CREATE TABLE films
 (
   id SERIAL8 PRIMARY KEY,
   film_name VARCHAR(255),
+  price INT8,
   duration_minutes INT8,
   age_rating INT4
 );
