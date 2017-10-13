@@ -42,4 +42,22 @@ class Customer
     return customers_as_objects
   end
 
+  def update()
+    sql = "UPDATE customers
+           SET (name, funds) = ($1, $2)
+           WHERE id = $3"
+    values = [@name, @funds, @id]
+    SqlRunner.run(sql, values)
+  end
+
+  def Customer.find(customer_id)
+    sql = "SELECT * FROM customers
+           WHERE id = $1"
+    values = [customer_id]
+    result = SqlRunner.run(sql, values)
+    person_details = result[0]
+    person_info = Customer.new(person_details)
+    return person_info
+  end
+  
 end
