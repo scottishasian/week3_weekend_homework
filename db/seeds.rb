@@ -3,6 +3,10 @@ require_relative( '../models/customer.rb')
 require_relative( '../models/films.rb')
 require_relative( '../models/tickets.rb')
 
+Tickets.delete_all
+Films.delete_all
+Customer.delete_all
+
 customer_1 = Customer.new({'name' => 'Claire', 'funds' => 30})
 customer_1.save
 
@@ -35,6 +39,9 @@ ticket_2 = Tickets.new({
   'customer_id' => customer_2.id,
   'film_id' => film_1.id
   })
+
+ticket_1.save
+ticket_2.save
 
 binding.pry
 nil

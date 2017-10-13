@@ -45,6 +45,14 @@ class Films
     return films_as_objects
   end
 
+  def update()
+    sql = "UPDATE films
+           SET (film_name, price, duration_minutes, age_rating) = ($1, $2, $3, $4)
+           WHERE id = $5"
+    values = [@film_name, @price, @duration_minutes, @age_rating, @id]
+    SqlRunner.run(sql, values)
+  end
+
   def Films.find(film_id)
     sql = "SELECT * FROM films
            WHERE id = $1 "
