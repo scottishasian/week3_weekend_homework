@@ -13,7 +13,7 @@ CREATE TABLE films
 (
   id SERIAL8 PRIMARY KEY,
   film_name VARCHAR(255),
-  price INT8,
+  price DECIMAL(10,2),
   duration_minutes INT8,
   age_rating INT4
 );
