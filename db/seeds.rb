@@ -4,6 +4,7 @@ require_relative( '../models/films.rb')
 require_relative( '../models/tickets.rb')
 
 customer_1 = Customer.new({'name' => 'Claire', 'funds' => 30})
+customer_1.save
 
 customer_2 = Customer.new({'name' => 'Callum', 'funds' => 20})
 
@@ -19,6 +20,13 @@ film_2 = Films.new({
   'price' => 7.61,
   'duration_minutes' => 90,
   'age_rating' => 12
+  })
+
+film_2.save
+
+ticket_1 = Tickets.new({
+  'customer_id' => customer_1.id,
+  'film_id' => film_2.id
   })
 
 binding.pry
