@@ -10,7 +10,7 @@ class Films
   def initialize(options)
     @id = options['id'].to_i if options['id']
     @film_name = options['film_name']
-    @price = options['price'].to_i
+    @price = options['price'].to_f
     @duration_minutes = options['duration'].to_i
     @age_rating = options['age_rating'].to_i
   end
