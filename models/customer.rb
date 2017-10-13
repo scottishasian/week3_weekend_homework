@@ -71,4 +71,7 @@ class Customer
     return films_seen
   end
 
+  # def ticket_cost()
+
+
 end

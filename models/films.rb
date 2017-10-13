@@ -74,5 +74,10 @@ class Films
     return people
   end
 
+  def customer_count()
+    result = customer_list
+    return result.count
+  end
+
 
 end
