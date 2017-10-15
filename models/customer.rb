@@ -76,7 +76,23 @@ class Customer
     return result.count
   end
 
-  # def ticket_cost()
+  def ticket_cost
+    array = find_films()
+    for i in array
+      return i.price
+    end
+  end
+
+  # def ticket_cost
+  #   sql = "SELECT films.price FROM films
+  #          INNER JOIN tickets
+  #          ON films.id = tickets.film_id
+  #          WHERE customer_id = $1"
+  #   values = [@id]
+  #   result = SqlRunner.run(sql, values)
+  #   films_prices = result.map{|film| Films.new(film)}
+  #   return films_prices
+  # end
 
 
 end

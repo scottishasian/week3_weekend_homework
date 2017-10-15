@@ -24,3 +24,13 @@ CREATE TABLE tickets
   customer_id INT8 REFERENCES customers(id),
   film_id INT8 REFERENCES films(id)
 );
+
+CREATE TABLE screenings
+(
+  id SERIAL8 PRIMARY KEY,
+  film_id INT8 REFERENCES films(id),
+  film_name VARCHAR(255) REFERENCES films(film_name),
+  film_time VARCHAR(255)
+);
+
+-- Could use a check constraint to see if customer is old enough to see a film.
