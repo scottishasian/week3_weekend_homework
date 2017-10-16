@@ -76,18 +76,24 @@ class Customer
     return result.count
   end
 
-  def ticket_cost()
-    array = find_films()
-    for i in array
-      return i.price
-    end
-  end
+  # def ticket_cost()
+  #   array = find_films()
+  #   for i in array
+  #     return i.price
+  #   end
+  # end
 
   def charge_customer()
-    charge = ticket_cost
-    @funds -= charge
+    array = find_films()
+    # charge = ticket_cost
+    for film in array
+      result =  @funds - film.price
+      @funds = result
+    end
+    update
   end
-
+  # Marta's method works better than my original method.
+  # My function was split, so result always returned the first price.
 
 
   # def film_charge()
