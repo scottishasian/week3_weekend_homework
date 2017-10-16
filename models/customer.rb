@@ -71,27 +71,33 @@ class Customer
     return films_seen
   end
 
-  def film_count
+  def film_count()
     result = find_films
     return result.count
   end
 
-  def ticket_cost
+  def ticket_cost()
     array = find_films()
     for i in array
       return i.price
     end
   end
 
-  # def ticket_cost
-  #   sql = "SELECT films.price FROM films
+  def charge_customer()
+    charge = ticket_cost
+    @funds -= charge
+  end
+
+
+
+  # def film_charge()
+  #   sql = "UPDATE customers.price
+  #          SET (funds) = ($1)
   #          INNER JOIN tickets
-  #          ON films.id = tickets.film_id
-  #          WHERE customer_id = $1"
-  #   values = [@id]
-  #   result = SqlRunner.run(sql, values)
-  #   films_prices = result.map{|film| Films.new(film)}
-  #   return films_prices
+  #          ON customers.id = tickets.customer_id
+  #          WHERE id = $2"
+  #   values = [@funds, @id]
+  #   SqlRunner.run(sql, values)
   # end
 
 

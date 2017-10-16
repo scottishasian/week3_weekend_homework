@@ -6,7 +6,7 @@ CREATE TABLE customers
 (
   id SERIAL8 PRIMARY KEY,
   name VARCHAR(255),
-  funds INT4
+  funds DECIMAL(10,2)
 );
 
 CREATE TABLE films
